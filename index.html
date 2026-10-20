@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dulce & Tino - Nosso Casamento</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#E8D5B5;font-family:'Cormorant Garamond',serif;color:#5a4a3a;overflow-x:hidden}
+  .phone{max-width:420px;margin:0 auto;background:#fff;min-height:100vh;position:relative;box-shadow:0 0 30px rgba(0,0,0,0.2)}
+  /* CAPA */
+  .capa{height:100vh;background:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('IMG_0047.jpg') center/cover;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:20px}
+  .monograma{width:80px;height:80px;border:1.5px solid #C8A96E;display:flex;align-items:center;justify-content:center;font-family:'Great Vibes',cursive;font-size:32px;color:#C8A96E;margin-bottom:20px;clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);}
+  .capa h2{font-size:14px;letter-spacing:3px;font-weight:300;margin-bottom:10px}
+  .capa h1{font-family:'Great Vibes',cursive;font-size:48px;font-weight:400;margin:10px 0}
+  .capa p{font-size:14px;letter-spacing:2px}
+  .btn-ver{margin-top:30px;border:1px solid #C8A96E;background:rgba(200,169,110,0.2);color:#fff;padding:12px 30px;border-radius:30px;letter-spacing:2px;font-size:12px;cursor:pointer;backdrop-filter:blur(5px)}
+  /* PLAYER */
+  .player{position:fixed;left:15px;bottom:100px;width:38px;height:38px;background:#C8A96E;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:100;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.3)}
+  /* SEÇÕES */
+  .sec{padding:50px 25px;text-align:center}
+  .aliancas{font-size:50px;margin-bottom:15px}
+  .titulo-script{font-family:'Great Vibes',cursive;color:#C8A96E;font-size:36px;margin-bottom:15px}
+  .versiculo{font-size:14px;line-height:1.8;color:#8a7a6a;font-style:italic;max-width:300px;margin:0 auto}
+  .foto-oval{width:260px;height:360px;margin:20px auto;border-radius:130px 130px 20px 20px;overflow:hidden;border:2px solid #E8D5B5}
+  .foto-oval img{width:100%;height:100%;object-fit:cover}
+  .nome-noivo{font-family:'Great Vibes',cursive;color:#C8A96E;font-size:38px;margin-top:15px}
+  .filiacao{font-size:13px;color:#9a8a7a;line-height:1.6}
+  .coracao{color:#C8A96E;font-size:22px;margin:15px 0}
+  .card-agenda{border:1px solid #E8D5B5;border-radius:20px;padding:30px 15px;margin-top:20px}
+  .card-agenda h3{font-size:28px;margin:15px 0}
+  .agenda-item{margin:25px 0}
+  .agenda-item h4{color:#C8A96E;font-size:12px;letter-spacing:2px}
+  .agenda-item p{font-size:16px;margin-top:5px;font-weight:600}
+  .local{font-size:13px!important;color:#9a8a7a!important;font-weight:400!important;margin-top:8px!important}
+  /* RSVP */
+  .bege{background:#D4B896;padding:40px 25px;color:#fff}
+  .countdown{display:flex;gap:10px;justify-content:center;margin:20px 0}
+  .count-box{background:#fff;color:#5a4a3a;width:60px;padding:10px;border-radius:10px}
+  .count-box b{display:block;font-size:22px;color:#C8A96E}
+  .count-box span{font-size:10px}
+  input, select, textarea{width:100%;padding:14px;border:1px solid #E8D5B5;border-radius:10px;margin:8px 0;font-family:inherit}
+  .btn-submeter{background:#5a4a3a;color:#fff;border:none;padding:14px 30px;border-radius:30px;width:100%;margin-top:15px;letter-spacing:1px}
+  /* GALERIA */
+  .galeria{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+  .galeria img{width:100%;height:200px;object-fit:cover;border-radius:15px}
+  .galeria img:nth-child(3){grid-column:span 2;height:260px}
+  .final{background:linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('IMG_0051.jpeg') center/cover;height:70vh;display:flex;align-items:flex-end;justify-content:center;padding:30px;color:#fff;text-align:center}
+  .menu-bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:420px;width:100%;background:#C8A96E;display:flex;justify-content:space-around;padding:12px;border-radius:20px 20px 0 0;z-index:99}
+  .menu-bottom span{color:#fff;font-size:18px}
+  audio{display:none}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="player" onclick="document.getElementById('musica').paused ? document.getElementById('musica').play() : document.getElementById('musica').pause()">▶</div>
+  <audio id="musica" loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"></audio>
+
+  <!-- CAPA -->
+  <div class="capa">
+    <div class="monograma">D&T</div>
+    <h2>A UNIÃO MATRIMONIAL DE</h2>
+    <h1>Dulce & Tino</h1>
+    <p>22 . 03 . 2025</p>
+    <button class="btn-ver" onclick="document.getElementById('conteudo').scrollIntoView({behavior:'smooth'})">VER CONVITE</button>
+  </div>
+
+  <div id="conteudo">
+    <!-- LEI DIVINA -->
+    <div class="sec">
+      <div class="aliancas">💍</div>
+      <div class="titulo-script">Lei Divina...</div>
+      <p class="versiculo">"Filho meu, não te esqueças da minha lei, e o teu coração guarde os meus mandamentos"<br><br>Provérbios 3:1</p>
+    </div>
+
+    <!-- OS NOIVOS -->
+    <div class="sec">
+      <div class="titulo-script">Os Noivos</div>
+      <div class="foto-oval"><img src="IMG_0047.jpeg"></div>
+      <div class="nome-noivo">Dulce</div>
+      <p class="filiacao">Filha de<br>Sérgio Andela<br>e<br>Sofia Ibrahimo</p>
+      <div class="coracao">♡</div>
+      <div class="nome-noivo">Tino</div>
+      <p class="filiacao">Filho de<br>Jorge Kholau<br>e<br>Cristina Suale</p>
+    </div>
+
+    <!-- CONVITE -->
+    <div class="sec">
+      <div class="titulo-script">Com a benção de Deus,</div>
+      <p class="versiculo" style="font-style:normal">Temos a honra de convidá-lo(a) a comemorar esta data especial connosco. Venha juntar-se a nós e ajudar-nos a celebrar o nosso enlace matrimonial de acordo com a agenda abaixo:</p>
+      
+      <div class="card-agenda">
+        <p>📅</p>
+        <h3>Agenda</h3>
+        <p style="font-size:13px">Sábado<br>22 de Março, 2027</p>
+        <div class="agenda-item">
+          <h4>CERIMÓNIA CIVIL</h4>
+          <p>14H00</p>
+          <p class="local">Hotel Milênio<br>Av. Julius Nyerere, Maputo</p>
+        </div>
+        <div class="agenda-item">
+          <h4>CERIMÓNIA RELIGIOSA</h4>
+          <p>15H50</p>
+          <p class="local">Hotel Milênio</p>
+        </div>
+        <div class="agenda-item">
+          <h4>COPO D'ÁGUA</h4>
+          <p>17H15</p>
+          <p class="local">Hotel Milênio</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTAGEM -->
+    <div class="bege">
+      <div class="titulo-script" style="color:#fff">Amigos e Família</div>
+      <p style="font-size:13px;line-height:1.6">Se recebeu este convite significa que é nosso convidado de honra e a sua presença é importante para nós. Por favor confirme a sua presença para melhor nos organizarmos.</p>
+      <div class="countdown" id="countdown"></div>
+      <div class="foto-oval" style="width:100%;height:280px"><img src="IMG_0049.jpeg"></div>
+    </div>
+
+    <!-- RSVP -->
+    <div class="sec">
+      <div class="titulo-script">R.S.V.P.</div>
+      <input type="text" id="nome" placeholder="Nome e Apelido * Ex: Antonio João">
+      <input type="tel" placeholder="Celular * Ex: +258 84 103 4567" id="cel">
+      <select id="presenca"><option>Estará presente? (Yes, I'll be there)</option><option>Sim, estarei</option><option>Não poderei</option></select>
+      <textarea rows="4" placeholder="Por favor, escreva aqui as suas felicitações pela nossa união."></textarea>
+      <button class="btn-submeter" onclick="enviar()">Submeter</button>
+    </div>
+
+    <!-- PRESENTE -->
+    <div class="sec">
+      <p>🎁</p>
+      <div class="titulo-script">Presente de Casamento</div>
+      <p class="versiculo" style="font-style:normal">Sua presença é o nosso maior presente, no entanto caso queira nos agraciar com um presente veja logo abaixo o resumo das nossas preferências:</p>
+      <button class="btn-submeter" style="background:#C8A96E;width:auto;padding:10px 25px">EM ARTIGOS</button>
+    </div>
+
+    <!-- VERSICULO FINAL -->
+    <div class="sec">
+      <div class="titulo-script">Mais Um Passo Na Nossa Jornada</div>
+      <p class="versiculo">"Assim, eles já não são dois, mas sim uma só carne. Portanto, o que Deus uniu, ninguém separe."<br><br>Mateus 19:6</p>
+      <div class="galeria">
+        <img src="IMG_0047.jpeg">
+        <img src="IMG_0049.jpeg">
+        <img src="IMG_0050.jpeg">
+        <img src="IMG_0051.jpeg">
+      </div>
+    </div>
+
+    <div class="final">
+      <p style="font-size:18px;line-height:1.5">Estamos ansiosos para<br>recebê-lo no dia do<br>nosso casamento.</p>
+    </div>
+    <div style="height:70px"></div>
+  </div>
+
+  <div class="menu-bottom"><span>📖</span><span>👥</span><span>🖼️</span><span>✉️</span></div>
+</div>
+
+<script>
+  // Contagem
+  const dataCasamento = new Date("2026-03-22T14:00:00").getTime();
+  setInterval(()=>{
+    const agora = new Date().getTime();
+    const diff = dataCasamento - agora;
+    const d = Math.floor(diff/(1000*60*60*24));
+    const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const m = Math.floor((diff%(1000*60*60))/(1000*60));
+    const s = Math.floor((diff%(1000*60))/1000);
+    document.getElementById("countdown").innerHTML = `
+      <div class="count-box"><b>${d}</b><span>Dias</span></div>
+      <div class="count-box"><b>${h}</b><span>Horas</span></div>
+      <div class="count-box"><b>${m}</b><span>Minutos</span></div>
+      <div class="count-box"><b>${s}</b><span>Segundos</span></div>`;
+  },1000);
+  function enviar(){
+    const nome = document.getElementById('nome').value;
+    const cel = document.getElementById('cel').value;
+    const msg = `Olá! Sou ${nome}, confirmo presença no casamento Dulce & Tino. Meu contacto: ${cel}`;
+    window.open(`https://wa.me/258840000000?text=${encodeURIComponent(msg)}`,'_blank');
+  }
+</script>
+</body>
+</html>
